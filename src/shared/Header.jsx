@@ -1,6 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
+
+const {user}={};
 
     const NavBar = <>
         <li><a>ToyFriendly</a></li>
@@ -31,11 +34,13 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                   {user && user?  <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full border-white">
                             <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                         </div>
-                    </label>
+                    </label> : <Link to="login" className='text-white'>Login</Link>
+                    
+                }
                 </div>
             </div>
         </div>
