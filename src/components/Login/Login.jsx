@@ -1,8 +1,37 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import "./Login.css"
 import { FaEnvelopeSquare, FaGoogle, FaKey, } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../authProvider/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
 const Login = () => {
+    const { userLogin,loginWithGoogle } = useContext(AuthContext);
+    console.log(userLogin)
+    const navigate = useNavigate()
+    const [error, setError] = useState("");
+    const handleLogIn = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email,password)
+        userLogin(email, password)
+            .then(result => {
+                navigate("/")
+            }).catch(error => {
+                setError("Password or email not match !")
+            })
+    }
+    const hanldeLoginWithGoogle = () => {
+        const googleProvider = new GoogleAuthProvider()
+        loginWithGoogle(googleProvider)
+            .then(result => {
+                navigate("/")
+            }).catch(error => {
+
+            })
+    }
+
     return (
         <div className='flex my-5'>
             <div className="custom_loginForm py-10 w-12/12 md:w-6/12 lg:w-4/12 2xl:w-3/12">
@@ -13,40 +42,43 @@ const Login = () => {
 
                         </div>
                         <div className="card">
-                            <div className="card-body">
-                                <div className="form-control">
-                                    <label className="input-group">
-                                        <span className='bg-white text-xl'><FaEnvelopeSquare></FaEnvelopeSquare></span>
-                                        <input type="email" placeholder="amdin@gmail.com" className="input focus:border-none focus:outline-none" />
+                            {error && <p className='text-red-700 text-xl font-bold text-center '>{error}</p>}
+                            <form onSubmit={handleLogIn}>
+                                <div className="card-body">
+                                    <div className="form-control">
+                                        <label className="input-group">
+                                            <span className='bg-white text-xl'><FaEnvelopeSquare></FaEnvelopeSquare></span>
+                                            <input type="email" placeholder="amdin@gmail.com" className="input focus:border-none focus:outline-none" required name='email' />
 
-                                    </label>
-                                </div>
-                                <div className="form-control">
-                                    <label className="input-group">
-                                        <span className='bg-white text-xl'><FaKey></FaKey></span>
-                                        <input type="password" placeholder="password" className="input focus:border-none focus:outline-none" />
+                                        </label>
+                                    </div>
+                                    <div className="form-control">
+                                        <label className="input-group">
+                                            <span className='bg-white text-xl'><FaKey></FaKey></span>
+                                            <input type="password" placeholder="password" className="input focus:border-none focus:outline-none" name='password' required />
 
-                                    </label>
-                                </div>
+                                        </label>
+                                    </div>
 
-                                <button className="log-in"> Log In </button>
-                                <div>
-                                    <p className='text-red-700 text-xl font-bold text-center'>If you don't have an account? <br /> <Link to="/registration" className='text-[#FFE6FA] hover:text-red-700'>Register Now</Link> </p>
-                                </div>
-                                <div className='text-center'>
-                                    <p className='text-2xl text-white'>Or</p>
-                                </div>
-                                <div className='text-center'>
-                                    <div className="btn-group">
-                                        <button className="btn flex items-center hover:bg-white text-normal-case">
+                                    <button className="log-in" type='submit'> Log In </button>
+                                    <div>
+                                        <p className='text-red-700 text-xl font-bold text-center'>If you don't have an account? <br /> <Link to="/registration" className='text-[#FFE6FA] hover:text-red-700'>Register Now</Link> </p>
+                                    </div>
+                                    <div className='text-center'>
+                                        <p className='text-2xl text-white'>Or</p>
+                                    </div>
+                                    <div className='text-center'>
+                                        <div className="btn-group">
+                                            <button className="btn flex items-center hover:bg-white text-normal-case" onClick={hanldeLoginWithGoogle}>
 
-                                            <FaGoogle className='inline-block mr-2'></FaGoogle>
+                                                <FaGoogle className='inline-block mr-2'></FaGoogle>
 
-                                            Log in with google
-                                        </button>
+                                                Log in with google
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>

@@ -10,7 +10,6 @@ const Registration = () => {
     const navigate = useNavigate()
     const handleRegistration = (event) => {
 
-        console.log(userProfileUpdate)
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
@@ -106,7 +105,7 @@ const Registration = () => {
 
 
 
-                                    <button className="log-in"> Log In </button>
+                                    <button className="log-in" type='submit'> Log In </button>
                                     <div>
                                         <p className='text-red-700 text-xl font-bold text-center'>Already have an account? <br /> <Link to="/login" className='text-[#FFE6FA] hover:text-red-700'>Login Now</Link> </p>
                                     </div>
