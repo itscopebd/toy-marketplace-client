@@ -1,15 +1,57 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { FaEnvelopeSquare, FaGoogle, FaKey, FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../authProvider/AuthProvider';
 const Registration = () => {
-
+    const { userRegister, userProfileUpdate } = useContext(AuthContext);
+    const [error, setError] = useState("");
+    const [success,setSuccess]=useState("")
     const handleRegistration = (event) => {
+
+
+
+        console.log(userProfileUpdate)
         event.preventDefault();
-       const form= event.target;
-       const name=form.name.value;
-       const email=form.email.value;
-       const password= form.password.value;
-       const url=form.url.value;
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        const url = form.url.value;
+
+        console.log(name)
+        userRegister(email, password)
+            .then(result => {
+                
+                const logUser = result.user;
+
+                userProfileUpdate(logUser, {
+                    displayName: name,
+                    photoURL: url
+
+                }).then(result => {
+                        console.log(result)
+                    }).catch(error => {
+
+                    })
+
+                    setSuccess("Registration Successfull!")
+
+            }).catch(error => {
+                console.log(error)
+            })
+
+    }
+
+
+    const handlePasword = (evert) => {
+        const passwordLength = evert.target.value;
+        if (passwordLength.length < 6) {
+            setError("Please Provide 6 Charecter Password")
+        }
+        else {
+            setError("")
+        }
     }
 
     return (
@@ -22,33 +64,38 @@ const Registration = () => {
 
                         </div>
                         <div className="card">
+                            {error && <p className='text-red-700 text-xl font-bold text-center '>{error}</p>}
+                            {success && <p className='text-green-700 text-xl font-bold text-center '>{success}</p>}
                             <form onSubmit={handleRegistration}>
 
                                 <div className="card-body">
                                     <div className="form-control">
                                         <label className="input-group">
                                             <span className='bg-white text-xl'><FaUser></FaUser></span>
-                                            <input type="text" placeholder="Name" name='name' className="input focus:border-none focus:outline-none" />
+                                            <input type="text" placeholder="Name" name='name' className="input focus:border-none focus:outline-none" required />
 
                                         </label>
                                     </div>
                                     <div className="form-control">
                                         <label className="input-group">
                                             <span className='bg-white text-xl'><FaEnvelopeSquare></FaEnvelopeSquare></span>
-                                            <input type="email" placeholder="amdin@gmail.com" name='email' className="input focus:border-none focus:outline-none" />
+                                            <input type="email" placeholder="amdin@gmail.com" name='email' className="input focus:border-none focus:outline-none" required />
 
                                         </label>
                                     </div>
                                     <div className="form-control">
                                         <label className="input-group">
                                             <span className='bg-white text-xl'><FaKey></FaKey></span>
-                                            <input type="password" placeholder="password" name='password' className="input focus:border-none focus:outline-none" />
+                                            <input type="password" placeholder="password" name='password' className="input focus:border-none focus:outline-none" onChange={handlePasword} required />
 
                                         </label>
+
                                     </div>
                                     <div className="form-control">
-                                        <input type="url" placeholder="Photo Url" name='url' className="input focus:border-none focus:outline-none" />
+                                        <input type="url" placeholder="Photo Url" name='url' className="input focus:border-none focus:outline-none" required />
                                     </div>
+
+
 
                                     <button className="log-in"> Log In </button>
                                     <div>
