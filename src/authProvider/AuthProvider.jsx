@@ -1,5 +1,5 @@
 
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signInWithPopup, updateProfile } from "firebase/auth";
 import { createContext, useState } from "react";
 import app from "../firebase/Firebase";
 
@@ -23,13 +23,17 @@ const AuthProvider = ({ children }) => {
 const userProfileUpdate=(user,update)=>{
     return updateProfile(user,update)
 }
+const loginWithGoogle=(provider)=>{
 
+return signInWithPopup(auth,provider)
+}
 
 
     const userInfo = {
         user,
         userRegister,
-        userProfileUpdate
+        userProfileUpdate,
+        loginWithGoogle
         
     }
 

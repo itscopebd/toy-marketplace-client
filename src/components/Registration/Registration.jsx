@@ -1,14 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { FaEnvelopeSquare, FaGoogle, FaKey, FaUser } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../authProvider/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
 const Registration = () => {
-    const { userRegister, userProfileUpdate } = useContext(AuthContext);
+    const { userRegister, userProfileUpdate, loginWithGoogle } = useContext(AuthContext);
     const [error, setError] = useState("");
-    const [success,setSuccess]=useState("")
+    const [success, setSuccess] = useState("")
+    const navigate = useNavigate()
     const handleRegistration = (event) => {
-
-
 
         console.log(userProfileUpdate)
         event.preventDefault();
@@ -18,29 +18,26 @@ const Registration = () => {
         const password = form.password.value;
 
         const url = form.url.value;
-
-        console.log(name)
+        if (password.length < 6) {
+            event.target.focus;
+            return;
+        }
         userRegister(email, password)
             .then(result => {
-                
                 const logUser = result.user;
-
                 userProfileUpdate(logUser, {
                     displayName: name,
                     photoURL: url
 
                 }).then(result => {
-                        console.log(result)
-                    }).catch(error => {
+                    navigate("/login")
+                }).catch(error => {
 
-                    })
-
-                    setSuccess("Registration Successfull!")
-
+                })
+                setSuccess("Registration Successfull!")
             }).catch(error => {
-                console.log(error)
+                setError("User Aready Exist!!")
             })
-
     }
 
 
@@ -53,6 +50,18 @@ const Registration = () => {
             setError("")
         }
     }
+
+
+    const hanldeLoginWithGoogle = () => {
+        const googleProvider = new GoogleAuthProvider()
+        loginWithGoogle(googleProvider)
+            .then(result => {
+                setSuccess("Login With Google Registration Successfull!")
+            }).catch(error => {
+
+            })
+    }
+
 
     return (
         <div className='flex my-5'>
@@ -106,7 +115,7 @@ const Registration = () => {
                                     </div>
                                     <div className='text-center'>
                                         <div className="btn-group">
-                                            <button className="btn flex items-center hover:bg-white text-normal-case">
+                                            <button className="btn flex items-center hover:bg-white text-normal-case" onClick={hanldeLoginWithGoogle}>
 
                                                 <FaGoogle className='inline-block mr-2'></FaGoogle>
 
