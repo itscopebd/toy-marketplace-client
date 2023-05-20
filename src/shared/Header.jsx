@@ -18,7 +18,7 @@ const Header = () => {
     const NavBar = <>
         <li><a>ToyFriendly</a></li>
         <li><a>Home</a></li>
-        <li><a>All Toys</a></li>
+        <li>  <Link to="/alltoys">All Toys</Link> </li>
         {
             user && <><li><a>My Toys</a></li>
             <li><a>Add A Toy</a></li></>
