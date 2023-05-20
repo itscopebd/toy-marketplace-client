@@ -7,11 +7,7 @@ console.log(facilitis)
 
 
 
-    // useEffect(() => {
-    //     fetch(url)
-    //         .then(res => res.json())
-    //         .then(data => console.log(data))
-    // }, [])
+   
 
     return (
         <div>

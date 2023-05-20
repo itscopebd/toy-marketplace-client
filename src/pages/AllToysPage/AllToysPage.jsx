@@ -4,32 +4,35 @@ import ToysTabular from '../../components/ToysTabular/ToysTabular';
 
 const AllToysPage = () => {
 
-    const allToys=useLoaderData();
+    const allToys = useLoaderData();
     console.log(allToys)
 
-    return ( 
+    return (
         <div className='container mx-auto my-5'>
-        <div className="overflow-x-auto w-full">
-            <table className="table w-full">
-                {/* head */}
-                <thead>
-                    <tr>
-                        
-                        <th>Image</th>
-                        <th>Toy Name</th>
-                        <th>Sub-category</th>
-                        <th>Price</th>
-                        <th>Available Quantity</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-         {
-        allToys.map(toy=><ToysTabular toy={toy.facility
-        }></ToysTabular>)
-       }
-               
+            <div className="overflow-x-auto w-full">
+                <table className="table w-full">
+                    {/* head */}
+                    <thead>
+                        <tr>
 
-               </table>
+                            <th>Image</th>
+                            <th>Toy Name</th>
+                            <th>Sub-category</th>
+                            <th>Price</th>
+                            <th>Available Quantity</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
+
+                        {
+                            allToys.map(toy => <ToysTabular toy={toy.items}></ToysTabular>)
+                        }
+                    </tbody>
+
+                </table>
             </div>
         </div>
     );

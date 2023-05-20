@@ -21,7 +21,7 @@ const Header = () => {
         <li>  <Link to="/alltoys">All Toys</Link> </li>
         {
             user && <><li><a>My Toys</a></li>
-            <li><a>Add A Toy</a></li></>
+            <li> <Link to="/addtoy">Add A Toy</Link> </li></>
         }
         <li><a>Blogs</a></li>
     </>
