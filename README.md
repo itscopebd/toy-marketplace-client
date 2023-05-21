@@ -1,6 +1,6 @@
 website Live Link
 
-* https://toyfriendly.web.app/
+* https://toyfriendly.web.app
 
 Project Featured
 

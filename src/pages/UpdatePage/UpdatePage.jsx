@@ -11,7 +11,7 @@ const UpdatePage = () => {
     const getUpdateData=useLoaderData();
 
     console.log(getUpdateData);
-    const {_id,SubCategory,image,price,quantity,rating,description}=getUpdateData
+    const {_id,SubCategory,image,price,quantity,rating,description}=getUpdateData;
 
     const subCategory=[
         "Sports Cars",

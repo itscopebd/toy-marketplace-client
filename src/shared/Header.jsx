@@ -16,8 +16,8 @@ const Header = () => {
             })
     }
     const NavBar = <>
-        <li><a>ToyFriendly</a></li>
-        <li><a>Home</a></li>
+        <li><Link to="/">ToyFriendly</Link></li>
+        <li><Link to="/">Home</Link></li>
         <li>  <Link to="/alltoys">All Toys</Link> </li>
         {
             user && <><li><a>My Toys</a></li>
@@ -38,7 +38,7 @@ const Header = () => {
                             {NavBar}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">ToyFriendly</a>
+                    <Link to="/" className="btn btn-ghost normal-case text-xl">ToyFriendly</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 text-white">

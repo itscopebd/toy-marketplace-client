@@ -4,7 +4,7 @@ import Card from '../Card/Card';
 const FeatureProduct = () => {
     const [data, setData] = useState([])
     useEffect(() => {
-        fetch("http://localhost:5000/toys")
+        fetch("https://b7a11-toy-marketplace-server-side-itscopebd.vercel.app/toys")
             .then(res => res.json()).then(data => {
                 setData(data)
             })

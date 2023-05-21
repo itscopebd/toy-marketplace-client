@@ -19,7 +19,7 @@ const Routes = createBrowserRouter([
             {
                 path: "/",
                 element: <HomePage></HomePage>,
-                loader:()=> fetch("http://localhost:5000/toys")   
+                loader:()=> fetch("https://b7a11-toy-marketplace-server-side-itscopebd.vercel.app/toys")   
             }
             , {
                 path: "/login",
@@ -31,7 +31,7 @@ const Routes = createBrowserRouter([
             {
                 path:"/alltoys",
                 element:<AllToysPage></AllToysPage>,
-                loader:()=>fetch("http://localhost:5000/toys")
+                loader:()=>fetch("https://b7a11-toy-marketplace-server-side-itscopebd.vercel.app/toys")
             }
             ,{
                 path:"/addtoy",
@@ -44,11 +44,11 @@ const Routes = createBrowserRouter([
             {
                 path:"/update/:id",
             element:<UpdatePage></UpdatePage>,
-            loader:({params})=>fetch(`http://localhost:5000/toy/${params.id}`)
+            loader:({params})=>fetch(`https://b7a11-toy-marketplace-server-side-itscopebd.vercel.app/toy/${params.id}`)
         },{
             path:"/details/:id",
             element:<DetailsPage></DetailsPage>,
-            loader:({params})=>fetch(`http://localhost:5000/toy/${params.id}`)
+            loader:({params})=>fetch(`https://b7a11-toy-marketplace-server-side-itscopebd.vercel.app/toy/${params.id}`)
         }
            
         ]

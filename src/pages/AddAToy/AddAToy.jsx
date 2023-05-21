@@ -6,7 +6,7 @@ const AddAToy = () => {
     const { user } = useContext(AuthContext);
     console.log(user)
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-const [selectedSubCategoey,setSelectedSubCategoey]=useState()
+
 
 const subCategory=[
 "Sports Cars",
@@ -19,7 +19,7 @@ const subCategory=[
 ]
 
     const onSubmit = data => {
-        fetch("http://localhost:5000/addtoy", {
+        fetch("https://b7a11-toy-marketplace-server-side-itscopebd.vercel.app/addtoy", {
             method: "POST",
             headers: {
                 "content-type": "application/json"
