@@ -1,21 +1,33 @@
-import { useState } from 'react';
-import { Gallery } from "react-grid-gallery";
-// import { images as IMAGES } from "./images";
+
+import "./ImageGallery.css"
 const ImageGallery = () => {
-    const [images, setImages] = useState(IMAGES);
- 
-    const handleSelect = (index) => {
-        const nextImages = images.map((image, i) =>
-          i === index ? { ...image, isSelected: !image.isSelected } : image
-        );
-        setImages(nextImages);
-      };
-    
-    return (
-        <div>
-             <Gallery images={images} />
+
+  return (
+    <div className='container mx-auto my-16'>
+      <h4 className="text-3xl font-bold text-center mb-10">Gallery</h4>
+      <div class="grid__wrapper">
+
+        <div class="span__two">
+          <img src="https://i.ibb.co/X24Sx5C/H09a5d582474a41a0b03429c4af6b8d4-1.png" alt="" />
         </div>
-    );
+        <div class="span__one">
+          <img src="https://i.ibb.co/X24Sx5C/H09a5d582474a41a0b03429c4af6b8d4-1.png" alt="" />
+        </div>
+        <div class="span__two">
+          <img src="https://i.ibb.co/X24Sx5C/H09a5d582474a41a0b03429c4af6b8d4-1.png" alt="" />
+        </div>
+        <div class="span__two phone_one">
+          <img src="https://i.ibb.co/X24Sx5C/H09a5d582474a41a0b03429c4af6b8d4-1.png" alt="" />
+        </div>
+        <div class="span__one">
+          <img src="https://i.ibb.co/X24Sx5C/H09a5d582474a41a0b03429c4af6b8d4-1.png" alt="" />
+        </div>
+        <div class="span__one">
+          <img src="https://i.ibb.co/X24Sx5C/H09a5d582474a41a0b03429c4af6b8d4-1.png" alt="" />
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default ImageGallery;

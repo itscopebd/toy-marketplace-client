@@ -3,7 +3,6 @@ import HomePage from "../pages/HomePage/HomePage";
 import Main from "../layOut/Main";
 import Login from "../components/Login/Login";
 import Registration from "../components/Registration/Registration";
-import ShopByCategory from "../components/ShopByCategory/ShopByCategory";
 import AllToysPage from "../pages/AllToysPage/AllToysPage";
 import AddAToy from "../pages/AddAToy/AddAToy";
 import BlogPage from "../pages/BlogPage/BlogPage";
@@ -18,7 +17,7 @@ const Routes = createBrowserRouter([
             {
                 path: "/",
                 element: <HomePage></HomePage>,
-                loader:()=> fetch("http://localhost:5000/toys")   
+                loader:()=> fetch("https://b7a11-toy-marketplace-server-side-itscopebd.vercel.app/toys")   
             }
             , {
                 path: "/login",
@@ -30,7 +29,7 @@ const Routes = createBrowserRouter([
             {
                 path:"/alltoys",
                 element:<AllToysPage></AllToysPage>,
-                loader:()=>fetch("http://localhost:5000/toys")
+                loader:()=>fetch("https://b7a11-toy-marketplace-server-side-itscopebd.vercel.app/toys")
             }
             ,{
                 path:"/addtoy",
