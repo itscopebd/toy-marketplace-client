@@ -11,7 +11,7 @@ const UpdatePage = () => {
     const getUpdateData=useLoaderData();
 
     console.log(getUpdateData);
-    const {SubCategory,image,price,quantity,rating,description}=getUpdateData
+    const {_id,SubCategory,image,price,quantity,rating,description}=getUpdateData
 
     const subCategory=[
         "Sports Cars",
@@ -27,23 +27,24 @@ const UpdatePage = () => {
         console.log("description " + description)
    
     const onSubmit = data => {
-        // fetch("http://localhost:5000/toy/", {
-        //     method: "POST",
-        //     headers: {
-        //         "content-type": "application/json"
-        //     },
-        //     body: JSON.stringify(data)
-        // })
-        //     .then(result => {
-        //         if (result.status == 200) {
-        //             Swal.fire(
-        //                 'Toy added',
-        //                 'Successfull'
-        //             )
-        //         }
-        //     }).catch(err => {
+        fetch(`http://localhost:5000/update/${_id}`, {
+            method: "PATCH",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+            .then(result => {
+                console.log(result)
+                if (result.status == 200) {
+                    Swal.fire(
+                        'Toy Updated',
+                        'Successfull'
+                    )
+                }
+            }).catch(err => {
 
-        //     })
+            })
         console.log({data})
     };
     return (
