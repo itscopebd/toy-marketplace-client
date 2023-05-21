@@ -7,6 +7,8 @@ const AllToysPage = () => {
     const loadToys = useLoaderData();
 
     const [allToys, setAllToys] = useState(loadToys);
+
+    
     const handleDeleteToy = (id) => {
         console.log(id)
     }

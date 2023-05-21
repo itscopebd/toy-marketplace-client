@@ -47,6 +47,7 @@ const Footer = () => {
 
                     </div>
                 </div>
+                <p className='text-center text-white text-xl mt-16'>&copy;Right Rofiqul Islam. 2023</p>
             </div>
         </div>
     );

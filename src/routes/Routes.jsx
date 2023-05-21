@@ -7,6 +7,7 @@ import AllToysPage from "../pages/AllToysPage/AllToysPage";
 import AddAToy from "../pages/AddAToy/AddAToy";
 import BlogPage from "../pages/BlogPage/BlogPage";
 import UpdatePage from "../pages/UpdatePage/UpdatePage";
+import DetailsPage from "../pages/DetailsPage/DetailsPage";
 
 const Routes = createBrowserRouter([
     {
@@ -30,7 +31,7 @@ const Routes = createBrowserRouter([
             {
                 path:"/alltoys",
                 element:<AllToysPage></AllToysPage>,
-                loader:()=>fetch("https://b7a11-toy-marketplace-server-side-itscopebd.vercel.app/toys")
+                loader:()=>fetch("http://localhost:5000/toys")
             }
             ,{
                 path:"/addtoy",
@@ -43,7 +44,11 @@ const Routes = createBrowserRouter([
             {
                 path:"/update/:id",
             element:<UpdatePage></UpdatePage>,
-            loader:({params})=>fetch(`https://b7a11-toy-marketplace-server-side-itscopebd.vercel.app/toy/${params.id}`)
+            loader:({params})=>fetch(`http://localhost:5000/toy/${params.id}`)
+        },{
+            path:"/details/:id",
+            element:<DetailsPage></DetailsPage>,
+            loader:({params})=>fetch(`http://localhost:5000/toy/${params.id}`)
         }
            
         ]

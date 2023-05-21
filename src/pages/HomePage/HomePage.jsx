@@ -10,8 +10,7 @@ import Card from '../../components/Card/Card';
 
 const HomePage = () => {
     const toys = useLoaderData();
-    // const [cat, setCat] = useState([]);
-    // const [subCat, setSubCat] = useState(toys)
+  
     const sportsCar=toys.filter(sportsCar=>sportsCar.subCatid==1)
     const regularCar=toys.filter(sportsCar=>sportsCar.subCatid==3)
     const truckCar=toys.filter(sportsCar=>sportsCar.subCatid==2)
@@ -31,23 +30,23 @@ const HomePage = () => {
                     </TabList>
 
                     <TabPanel>
-                       <div className='grid grid-cols-3 gap-10'>
+                       <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-10'>
                        {
-                            sportsCar.splice(0, 3).map(single=><Card single={single}></Card>)
+                            sportsCar.splice(0, 4).map(single=><Card single={single}></Card>)
                         }
                        </div>
                     </TabPanel>
                     <TabPanel>
-                    <div className='grid grid-cols-3 gap-10'>
+                    <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-10'>
                        {
-                            regularCar.splice(0, 3).map(single=><Card single={single}></Card>)
+                            regularCar.splice(0, 4).map(single=><Card single={single}></Card>)
                         }
                        </div>
                     </TabPanel>
                     <TabPanel>
-                    <div className='grid grid-cols-3 gap-10'>
+                    <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-10'>
                        {
-                            truckCar.splice(0, 3).map(single=><Card single={single}></Card>)
+                            truckCar.splice(0, 4).map(single=><Card single={single}></Card>)
                         }
                        </div>
                     </TabPanel>
