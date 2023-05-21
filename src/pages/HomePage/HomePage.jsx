@@ -4,6 +4,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import SubCatCard from '../../components/SubCatCard/SubCatCard';
+import ImageGallery from '../../components/ImageGallery/ImageGallery';
 
 const HomePage = () => {
     const toys = useLoaderData();
@@ -34,9 +35,9 @@ const HomePage = () => {
 
                             <TabList>
 
-                               {
-                                toys.map(subCat=><Tab>{subCat.SubCategory}</Tab>)
-                               } 
+                                {
+                                    toys.map(subCat => <Tab>{subCat.SubCategory}</Tab>)
+                                }
                             </TabList>
 
                             <TabPanel>
@@ -205,7 +206,7 @@ const HomePage = () => {
 
                 {/* </Tabs> */}
             </div>
-
+            <ImageGallery></ImageGallery>
         </div>
     );
 };

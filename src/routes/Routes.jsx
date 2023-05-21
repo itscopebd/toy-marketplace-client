@@ -6,6 +6,7 @@ import Registration from "../components/Registration/Registration";
 import ShopByCategory from "../components/ShopByCategory/ShopByCategory";
 import AllToysPage from "../pages/AllToysPage/AllToysPage";
 import AddAToy from "../pages/AddAToy/AddAToy";
+import BlogPage from "../pages/BlogPage/BlogPage";
 
 const Routes = createBrowserRouter([
     {
@@ -34,12 +35,12 @@ const Routes = createBrowserRouter([
             ,{
                 path:"/addtoy",
                 element:<AddAToy></AddAToy>
+            },
+            {
+                path:"/blog",
+                element:<BlogPage></BlogPage>
             }
-            // {
-            //     path:"/category",
-            //     element:<ShopByCategory></ShopByCategory>,
-                
-            // }
+           
         ]
 
     }

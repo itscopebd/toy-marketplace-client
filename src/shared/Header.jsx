@@ -23,7 +23,7 @@ const Header = () => {
             user && <><li><a>My Toys</a></li>
             <li> <Link to="/addtoy">Add A Toy</Link> </li></>
         }
-        <li><a>Blogs</a></li>
+        <li> <Link to="/blog">Blogs</Link> </li>
     </>
 
     return (

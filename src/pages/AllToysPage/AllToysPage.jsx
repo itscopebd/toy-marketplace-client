@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import ToysTabular from '../../components/ToysTabular/ToysTabular';
 
 const AllToysPage = () => {
 
-    const allToys = useLoaderData();
+    const loadToys = useLoaderData();
+
+    const [allToys, setAllToys] = useState(loadToys);
+    const handleDeleteToy = (id) => {
+        console.log(id)
+    }
     console.log(allToys)
 
     return (
@@ -28,7 +33,7 @@ const AllToysPage = () => {
 
 
                         {
-                            allToys.map(toy => <ToysTabular toy={toy.items}></ToysTabular>)
+                            allToys.map(toy => <ToysTabular key={toy._id} toy={toy.items} handleDeleteToy={handleDeleteToy} toys={toy}></ToysTabular>)
                         }
                     </tbody>
 
