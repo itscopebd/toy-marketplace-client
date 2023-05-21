@@ -99,7 +99,7 @@ const subCategory=[
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text">Quantity</span>
+                                        <span className="label-text">Description</span>
                                     </label>
                                     <textarea className='textarea border-2 border-gray-200' name="" id="" cols="3" rows="3"  {...register("description")} required></textarea>
 

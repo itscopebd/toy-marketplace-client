@@ -27,7 +27,7 @@ const UpdatePage = () => {
         console.log("description " + description)
    
     const onSubmit = data => {
-        fetch(`http://localhost:5000/update/${_id}`, {
+        fetch(`https://b7a11-toy-marketplace-server-side-itscopebd.vercel.app/update/${_id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json"

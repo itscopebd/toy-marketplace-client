@@ -5,6 +5,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import SubCatCard from '../../components/SubCatCard/SubCatCard';
 import ImageGallery from '../../components/ImageGallery/ImageGallery';
+import FeatureProduct from '../../components/FeatureProduct/FeatureProduct';
 
 const HomePage = () => {
     const toys = useLoaderData();
@@ -206,6 +207,8 @@ const HomePage = () => {
 
                 {/* </Tabs> */}
             </div>
+
+            <FeatureProduct></FeatureProduct>
             <ImageGallery></ImageGallery>
         </div>
     );
