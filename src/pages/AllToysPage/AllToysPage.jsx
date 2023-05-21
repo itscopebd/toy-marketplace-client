@@ -33,7 +33,7 @@ const AllToysPage = () => {
 
 
                         {
-                            allToys.map(toy => <ToysTabular key={toy._id} toy={toy.items} handleDeleteToy={handleDeleteToy} toys={toy}></ToysTabular>)
+                            allToys.map(toy => <ToysTabular key={toy._id} toy={toy} handleDeleteToy={handleDeleteToy} toys={toy}></ToysTabular>)
                         }
                     </tbody>
 
