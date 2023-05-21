@@ -18,7 +18,7 @@ const Routes = createBrowserRouter([
             {
                 path: "/",
                 element: <HomePage></HomePage>,
-                loader:()=> fetch("https://b7a11-toy-marketplace-server-side-itscopebd.vercel.app/toys")   
+                loader:()=> fetch("http://localhost:5000/toys")   
             }
             , {
                 path: "/login",
