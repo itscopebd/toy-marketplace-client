@@ -8,14 +8,14 @@ const DetailsPage = () => {
         <div className='container mx-auto my-16'>
             <div className="card card-side bg-base-100 shadow-xl">
                 <figure><img className='h-96' src={image} alt="Movie" /></figure>
-                <div className="card-body">
+                <div className="card-body flex-grow-0">
                     <h2 className="card-title">{name}</h2>
-                    <p>Price: {price}</p>
-                    <p>{description}</p>
-                    <div className="card-actions justify-between">
-                        <p>Rating: {rating}</p>
-                        <p>Quantity: {quantity}</p>
-                    </div>
+                    <h2 className='font-bold'>Price: ${price}</h2>
+                    <h2 className='font-bold'>{description}</h2 >
+                    
+                        <h2 className='font-bold'>Rating: {rating}</h2>
+                        <h2 className='font-bold'>Quantity: {quantity}</h2>
+                  
                 </div>
             </div>
 
