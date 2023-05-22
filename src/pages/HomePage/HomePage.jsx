@@ -6,7 +6,8 @@ import 'react-tabs/style/react-tabs.css';
 import ImageGallery from '../../components/ImageGallery/ImageGallery';
 import FeatureProduct from '../../components/FeatureProduct/FeatureProduct';
 import BestSeller from '../../components/BestSeller/BestSeller';
-import Card from '../../components/Card/Card';
+import ShopByCatCard from '../../components/Card/ShopByCatCard';
+
 
 const HomePage = () => {
     const toys = useLoaderData();
@@ -32,21 +33,21 @@ const HomePage = () => {
                     <TabPanel>
                        <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-10'>
                        {
-                            sportsCar.splice(0, 4).map(single=><Card single={single}></Card>)
+                            sportsCar.splice(0, 4).map(single=><ShopByCatCard single={single}></ShopByCatCard>)
                         }
                        </div>
                     </TabPanel>
                     <TabPanel>
                     <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-10'>
                        {
-                            regularCar.splice(0, 4).map(single=><Card single={single}></Card>)
+                            regularCar.splice(0, 4).map(single=><ShopByCatCard single={single}></ShopByCatCard>)
                         }
                        </div>
                     </TabPanel>
                     <TabPanel>
                     <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-10'>
                        {
-                            truckCar.splice(0, 4).map(single=><Card single={single}></Card>)
+                            truckCar.splice(0, 4).map(single=><ShopByCatCard single={single}></ShopByCatCard>)
                         }
                        </div>
                     </TabPanel>
@@ -54,19 +55,6 @@ const HomePage = () => {
 
                 </Tabs>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
             <FeatureProduct></FeatureProduct>
             <BestSeller></BestSeller>
             <ImageGallery></ImageGallery>

@@ -1,6 +1,6 @@
 website Live Link
 
-* https://toyfriendly.web.app
+* https://toyfriend-f917a.web.app/
 
 Project Featured
 

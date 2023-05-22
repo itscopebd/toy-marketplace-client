@@ -1,23 +1,26 @@
 import React, { useContext, useState } from 'react';
 import "./Login.css"
 import { FaEnvelopeSquare, FaGoogle, FaKey, } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../authProvider/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
 const Login = () => {
-    const { userLogin,loginWithGoogle } = useContext(AuthContext);
-    console.log(userLogin)
-    const navigate = useNavigate()
+    const { userLogin, loginWithGoogle } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.form?.pathname || "/";
+
     const [error, setError] = useState("");
     const handleLogIn = (event) => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email,password)
+        console.log(email, password)
         userLogin(email, password)
             .then(result => {
-                navigate("/")
+               navigate(from,{replace:true})
             }).catch(error => {
                 setError("Password or email not match !")
             })
@@ -26,7 +29,7 @@ const Login = () => {
         const googleProvider = new GoogleAuthProvider()
         loginWithGoogle(googleProvider)
             .then(result => {
-                navigate("/")
+                navigate(from,{replace:true})
             }).catch(error => {
 
             })

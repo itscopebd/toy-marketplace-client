@@ -4,6 +4,8 @@ import { createContext, useEffect, useState } from "react";
 import app from "../firebase/Firebase";
 
 
+
+
 export const AuthContext = createContext(null)
 const AuthProvider = ({ children }) => {
     const auth = getAuth(app);
@@ -21,32 +23,35 @@ const AuthProvider = ({ children }) => {
 
     // user profile update 
     const userProfileUpdate = (user, update) => {
+        setLoading(true)
         return updateProfile(user, update)
     }
 
     // login with google 
     const loginWithGoogle = (provider) => {
-
+        setLoading(true)
         return signInWithPopup(auth, provider)
     }
 
     // user login 
     const userLogin = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
     // log out
     
     const logOut=()=>{
+        setLoading(true)
         return signOut(auth)
     }
 
 
     useEffect(() => {
-        const unscribe = onAuthStateChanged(auth, (user => {
-            setUser(user)
+        const unscribe = onAuthStateChanged(auth, (logInUser) => {
+            setUser(logInUser)
             setLoading(false)
-        }));
+        });
         return () => {
             unscribe()
         }
@@ -58,7 +63,8 @@ const AuthProvider = ({ children }) => {
         userProfileUpdate,
         loginWithGoogle,
         userLogin,
-        logOut
+        logOut,
+        loading
 
     }
 

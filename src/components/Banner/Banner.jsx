@@ -9,7 +9,7 @@ const Banner = () => {
 
 
                     <div className='top-1/2 left-2/3 -translate-x-1/2 -translate-y-1/2 absolute w-6/12 text-center'>
-                        <h3 className='text-4xl font-bold bg-gradient-to-r from-indigo-500 via-green-500 to-pink-500 bg-clip-text w-full text-transparent'>The perfect combination <br />  of power and style.</h3>
+                        <h3 className='text-4xl font-bold bg-gradient-to-r from-indigo-500 via-green-500 to-pink-500 bg-clip-text w-full text-transparent'>The perfect combination <br />  of power and style.    chagne </h3>
                         <p className='my-3'>There's some innocent flirtation between boy and girl cars. <br /> Some mild language -- at least one use of "hell." At 116 minutes, <br /> it's on the long side for animation and may be too much for some really little kids.</p>
                         <button className='btn bg-[#8bc34a] border-[#8bc34a]'>Shop Now</button>
                     </div>
