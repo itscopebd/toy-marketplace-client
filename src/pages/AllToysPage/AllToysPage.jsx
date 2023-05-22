@@ -9,10 +9,6 @@ const AllToysPage = () => {
     const [allToys, setAllToys] = useState(loadToys);
 
     
-    const handleDeleteToy = (id) => {
-        console.log(id)
-    }
-    console.log(allToys)
 
     return (
         <div className='container mx-auto my-5'>
@@ -35,7 +31,7 @@ const AllToysPage = () => {
 
 
                         {
-                            allToys.map(toy => <ToysTabular key={toy._id} toy={toy} handleDeleteToy={handleDeleteToy} toys={toy}></ToysTabular>)
+                            allToys.map(toy => <ToysTabular key={toy._id} toy={toy} toys={toy}></ToysTabular>)
                         }
                     </tbody>
 

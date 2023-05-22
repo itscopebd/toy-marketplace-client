@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import Card from '../Card/Card';
 import Carousel from 'react-elastic-carousel';
 import BestSellerCard from './BestSellerCard';
 const BestSeller = () => {

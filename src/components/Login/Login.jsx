@@ -20,7 +20,7 @@ const Login = () => {
         console.log(email, password)
         userLogin(email, password)
             .then(result => {
-               navigate(from,{replace:true})
+                navigate(from, { replace: true })
             }).catch(error => {
                 setError("Password or email not match !")
             })
@@ -29,9 +29,9 @@ const Login = () => {
         const googleProvider = new GoogleAuthProvider()
         loginWithGoogle(googleProvider)
             .then(result => {
-                navigate(from,{replace:true})
+                navigate(from, { replace: true })
             }).catch(error => {
-
+                console.log(error)
             })
     }
 

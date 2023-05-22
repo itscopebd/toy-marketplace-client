@@ -9,6 +9,7 @@ import BlogPage from "../pages/BlogPage/BlogPage";
 import UpdatePage from "../pages/UpdatePage/UpdatePage";
 import DetailsPage from "../pages/DetailsPage/DetailsPage";
 import PrivetRouter from "./PrivetRouter";
+import MyToyPage from "../pages/MyToyPage/MyToyPage";
 
 
 const Routes = createBrowserRouter([
@@ -21,7 +22,7 @@ const Routes = createBrowserRouter([
             {
                 path: "/",
                 element: <HomePage></HomePage>,
-                loader: () => fetch("http://localhost:5000/toys")
+                loader: () => fetch("https://b7a11-toy-marketplace-server-side-itscopebd.vercel.app/toys")
             }
             , {
                 path: "/login",
@@ -51,6 +52,9 @@ const Routes = createBrowserRouter([
                 path: "/details/:id",
                 element: <PrivetRouter><DetailsPage></DetailsPage></PrivetRouter>,
                 loader: ({ params }) => fetch(`https://b7a11-toy-marketplace-server-side-itscopebd.vercel.app/toy/${params.id}`)
+            },{
+                path:"/mytoy",
+                element:<PrivetRouter><MyToyPage></MyToyPage></PrivetRouter>
             }
 
         ]
