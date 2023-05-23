@@ -3,13 +3,15 @@ import { FaEnvelopeSquare, FaGoogle, FaKey, FaUser } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../authProvider/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
+import UseTitle from '../../hooks/UseTitle';
 const Registration = () => {
+    UseTitle("Registation")
     const { userRegister, userProfileUpdate, loginWithGoogle } = useContext(AuthContext);
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("")
     const navigate = useNavigate()
     const handleRegistration = (event) => {
-
+       
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
@@ -105,7 +107,7 @@ const Registration = () => {
 
 
 
-                                    <button className="log-in" type='submit'> Log In </button>
+                                    <button className="log-in" type='submit'> Registration </button>
                                     <div>
                                         <p className='text-red-700 text-xl font-bold text-center'>Already have an account? <br /> <Link to="/login" className='text-[#FFE6FA] hover:text-red-700'>Login Now</Link> </p>
                                     </div>

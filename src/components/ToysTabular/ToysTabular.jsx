@@ -13,7 +13,7 @@ const ToysTabular = ({ toy}) => {
            <td> <h3>{toy?.userName}</h3> </td>
            <td> <h3>{toy?.SubCategory}</h3> </td>
            
-           <td> <h3>{toy?.price}</h3> </td>
+           <td> <h3>${toy?.price}</h3> </td>
            <td> <h3>{toy?.quantity}</h3> </td>
           
            <td> 

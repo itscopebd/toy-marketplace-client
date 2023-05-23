@@ -4,9 +4,10 @@ import { FaEnvelopeSquare, FaGoogle, FaKey, } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../authProvider/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
+import UseTitle from '../../hooks/UseTitle';
 const Login = () => {
     const { userLogin, loginWithGoogle } = useContext(AuthContext);
-
+UseTitle("LogIn");
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.form?.pathname || "/";

@@ -9,7 +9,7 @@ const MyToysTabular = ({ toy, handleDeleteToy }) => {
             <td> <h3>{name}</h3> </td>
             <td> <h3>{SubCategory}</h3> </td>
 
-            <td> <h3>{price}</h3> </td>
+            <td> <h3>${price}</h3> </td>
             <td> <h3>{quantity}</h3> </td>
 
             <td>
