@@ -11,7 +11,7 @@ const UpdatePage = () => {
     const getUpdateData=useLoaderData();
 
     console.log(getUpdateData);
-    const {_id,SubCategory,image,price,quantity,rating,description}=getUpdateData;
+    const {_id,SubCategory,image,price,quantity,rating,description,name}=getUpdateData;
 
     const subCategory=[
         "Sports Cars",
@@ -62,9 +62,9 @@ const UpdatePage = () => {
 
                                 <input type="hidden" defaultValue={user?.email} {...register("email")} />
 
-                                <div className='flex gap-3'>
+                                <div className='md:flex gap-3'>
 
-                                    <div className='w-1/2'>
+                                    <div className='md:w-1/2'>
                                         <label className="label">
                                             <span className="label-text">Category</span>
                                         </label>
@@ -77,13 +77,13 @@ const UpdatePage = () => {
                                             
                                         </select>
                                     </div>
-                                    <div className="form-control w-1/2">
+                                    <div className="form-control md:w-1/2">
                                         <label className="label">
                                             <span className="label-text">Name</span>
                                         </label>
-                                        <input type="text" placeholder="Name" className="input input-bordered"  {...register("name")} defaultValue={name} required />
+                                        <input type="text" className="input input-bordered"  {...register("name")} defaultValue={name} required />
                                     </div>
-                                    <div className="form-control w-1/2">
+                                    <div className="form-control md:w-1/2">
                                         <label className="label">
                                             <span className="label-text">Price</span>
                                         </label>
@@ -91,14 +91,14 @@ const UpdatePage = () => {
                                     </div>
                                     
                                 </div>
-                                <div className='flex gap-3'>
-                                <div className="form-control w-1/2">
+                                <div className='md:flex gap-3'>
+                                <div className="form-control md:w-1/2">
                                         <label className="label">
                                             <span className="label-text">Image Url</span>
                                         </label>
                                         <input type="url" placeholder="Image Url" className="input input-bordered"  {...register("image")} defaultValue={image} required />
                                     </div>
-                                    <div className="form-control w-1/2">
+                                    <div className="form-control md:w-1/2">
                                         <label className="label">
                                             <span className="label-text">Rating</span>
                                         </label>
@@ -107,7 +107,7 @@ const UpdatePage = () => {
                                     </div>
 
 
-                                    <div className="form-control w-1/2">
+                                    <div className="form-control md:w-1/2">
                                         <label className="label">
                                             <span className="label-text">Quantity</span>
                                         </label>
@@ -119,7 +119,7 @@ const UpdatePage = () => {
                                     <label className="label">
                                         <span className="label-text">Description</span>
                                     </label>
-                                    <textarea className='textarea border-2 border-gray-200' name="" id="" cols="3" rows="3"  {...register("description")} required value={description}>  </textarea>
+                                    <textarea className='textarea border-2 border-gray-200' name="" id="" cols="3" rows="3"  {...register("description")} required>  </textarea>
 
                                 </div>
 

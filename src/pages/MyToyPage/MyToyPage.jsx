@@ -65,7 +65,7 @@ const MyToyPage = () => {
     return (
         <div className='container mx-auto my-5'>
             <div className="overflow-x-auto w-full">
-                <table className="table w-full">
+                <table className="table table-compact w-full">
                     {/* head */}
                     <thead>
                         <tr>

@@ -2,7 +2,7 @@ import React from 'react';
 
 const BlogPage = () => {
     return (
-        <div className='container mx-auto my-10'>
+        <div className='container mx-auto my-10 md:px-0 px-5'>
             <div>
                 <h4 className='font-bold text-3xl my-3'>Access Token & Refresh Token</h4>
                 <li>Access tokens enable APIs to determine who is requesting what resource and whether they have the necessary permissions.</li>

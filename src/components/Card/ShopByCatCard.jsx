@@ -12,7 +12,7 @@ const ShopByCatCard = ({ single }) => {
                 <p className='font-bold'>Price: ${price}</p>
                 <div className="card-actions justify-between">
                     <button className='font-bold'>Rating: {rating}</button>
-                    <Link to={`/details/${_id}`}><button className='btn btn-primary bg-[#8bc34a] border-none' >View Details</button>  </Link>
+                    <Link to={`/details/${_id}`}><button className='btn bg-[#8bc34a] border-none' >View Details</button>  </Link>
                 </div>
             </div>
         </div>

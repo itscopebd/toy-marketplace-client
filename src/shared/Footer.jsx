@@ -1,12 +1,14 @@
 import React from 'react';
 import { FaArrowRight, FaFacebook, FaInstagram, FaInstagramSquare, FaTwitter, FaTwitterSquare, FaYoutube, FaYoutubeSquare } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
-        <div className='bg-[#8bc34a] py-10'>
+        <div className='bg-[#8bc34a] py-10 md:px-0 px-10'>
             <div className='container mx-auto'>
                 <div className='grid md:grid-cols-2 lg:grid-cols-4 text-white justify-between'>
                     <div>
                         <h4 className='text-2xl font-Roboto font-semibold mb-5'>Address</h4>
+                        <Link to="/" className=" text-xl"> <img src="https://i.ibb.co/tmfLjyK/footer-Logo.png" alt="" /> </Link>
                         <p>442 5th Avenue</p>
                         <p>Suite 1266</p>
                         <p>Bangladesh, Bonani 10018</p>
@@ -47,7 +49,7 @@ const Footer = () => {
 
                     </div>
                 </div>
-                <p className='text-center text-white text-xl mt-16'>&copy;Right Rofiqul Islam. 2023</p>
+                <p className='md:text-center text-white text-xl mt-16'>&copy;Right Rofiqul Islam. 2023</p>
             </div>
         </div>
     );
