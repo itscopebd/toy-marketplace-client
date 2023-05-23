@@ -10,7 +10,7 @@ const AllToysPage = () => {
     const [searchText, setSearchText] = useState([])
 
     const searchHandle = () => {
-        fetch(`http://localhost:5000/search/${searchText}`)
+        fetch(`https://b7a11-toy-marketplace-server-side-itscopebd.vercel.app/search/${searchText}`)
             .then(res => res.json())
             .then(data => {
                 setAllToys(data)
@@ -21,22 +21,8 @@ const AllToysPage = () => {
     return (
         <div className='container mx-auto my-5'>
             <div className="overflow-x-auto w-full">
-                <table className="table w-full">
-                    {/* head */}
-                    <thead>
-                        <tr>
-
-                            <th>Image</th>
-                            <th>Toy Name</th>
-                            <th>Sub-category</th>
-                            <th>Price</th>
-                            <th>Available Quantity</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {/* search  */}
-                        <div className='my-10'>
+                  {/* search  */}
+                  <div className='my-10'>
                             <div className='text-center flex justify-center'>
                                 <div className="form-control">
                                     <div className="input-group">
@@ -48,6 +34,22 @@ const AllToysPage = () => {
                                 </div>
                             </div>
                         </div>
+                <table className="table w-full">
+                    {/* head */}
+                    <thead>
+                        <tr>
+
+                            <th>Image</th>
+                            <th>Seller</th>
+                            <th>Toy Name</th>
+                            <th>Sub-category</th>
+                            <th>Price</th>
+                            <th>Available Quantity</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      
 
                         {
                             allToys.map(toy => <ToysTabular key={toy._id} toy={toy} toys={toy}></ToysTabular>)

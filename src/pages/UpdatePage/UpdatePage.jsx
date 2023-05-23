@@ -49,7 +49,7 @@ const UpdatePage = () => {
     };
     return (
 
-        <div className='bg-yellow-200 p-10 container mx-auto'>
+        <div className='bg-[#ffe6fa] p-10 container mx-auto'>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className=" bg-base-200">
                     <div className="">
@@ -77,21 +77,27 @@ const UpdatePage = () => {
                                             
                                         </select>
                                     </div>
-
+                                    <div className="form-control w-1/2">
+                                        <label className="label">
+                                            <span className="label-text">Name</span>
+                                        </label>
+                                        <input type="text" placeholder="Name" className="input input-bordered"  {...register("name")} defaultValue={name} required />
+                                    </div>
                                     <div className="form-control w-1/2">
                                         <label className="label">
                                             <span className="label-text">Price</span>
                                         </label>
-                                        <input type="text" placeholder="Price" className="input input-bordered"  {...register("price")} defaultValue={price} required />
+                                        <input type="number" placeholder="Price" className="input input-bordered"  {...register("price")} defaultValue={price} required />
                                     </div>
-                                    <div className="form-control w-1/2">
+                                    
+                                </div>
+                                <div className='flex gap-3'>
+                                <div className="form-control w-1/2">
                                         <label className="label">
                                             <span className="label-text">Image Url</span>
                                         </label>
                                         <input type="url" placeholder="Image Url" className="input input-bordered"  {...register("image")} defaultValue={image} required />
                                     </div>
-                                </div>
-                                <div className='flex gap-3'>
                                     <div className="form-control w-1/2">
                                         <label className="label">
                                             <span className="label-text">Rating</span>
@@ -105,7 +111,7 @@ const UpdatePage = () => {
                                         <label className="label">
                                             <span className="label-text">Quantity</span>
                                         </label>
-                                        <input type="text" placeholder="Quantity" className="input input-bordered" {...register("quantity")} defaultValue={quantity} required />
+                                        <input type="number" placeholder="Quantity" className="input input-bordered" {...register("quantity")} defaultValue={quantity} required />
 
                                     </div>
                                 </div>
@@ -118,7 +124,7 @@ const UpdatePage = () => {
                                 </div>
 
                                 <div className="form-control mt-6">
-                                    <button className="btn btn-primary">Update Toy</button>
+                                    <button className="btn border-none bg-[#8bc34a]">Update Toy</button>
                                 </div>
                             </div>
                         </div>

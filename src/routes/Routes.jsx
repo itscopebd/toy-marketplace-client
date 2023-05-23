@@ -10,15 +10,15 @@ import UpdatePage from "../pages/UpdatePage/UpdatePage";
 import DetailsPage from "../pages/DetailsPage/DetailsPage";
 import PrivetRouter from "./PrivetRouter";
 import MyToyPage from "../pages/MyToyPage/MyToyPage";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 
 const Routes = createBrowserRouter([
     {
         path: "/",
         element: <Main></Main>,
-
-
-        children: [
+        errorElement:<ErrorPage></ErrorPage>,
+         children: [
             {
                 path: "/",
                 element: <HomePage></HomePage>,

@@ -39,7 +39,7 @@ const subCategory=[
     };
     return (
 
-        <div className='bg-yellow-200 p-10 container mx-auto'>
+        <div className='bg-[#ffe6fa] p-10 container mx-auto'>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className=" bg-base-200">
                     <div className="">
@@ -76,7 +76,7 @@ const subCategory=[
                                         <label className="label">
                                             <span className="label-text">Price</span>
                                         </label>
-                                        <input type="text" placeholder="Price" className="input input-bordered"  {...register("price")} required />
+                                        <input type="number" placeholder="Price" className="input input-bordered"  {...register("price")} required />
                                     </div>
                                     
                                 </div>
@@ -100,7 +100,7 @@ const subCategory=[
                                         <label className="label">
                                             <span className="label-text">Quantity</span>
                                         </label>
-                                        <input type="text" placeholder="Quantity" className="input input-bordered" {...register("quantity")} required />
+                                        <input type="number" placeholder="Quantity" className="input input-bordered" {...register("quantity")} required />
 
                                     </div>
                                 </div>
@@ -113,7 +113,7 @@ const subCategory=[
                                 </div>
 
                                 <div className="form-control mt-6">
-                                    <button className="btn btn-primary">Add Toy</button>
+                                    <button className="btn bg-[#8bc34a] border-none">Add Toy</button>
                                 </div>
                             </div>
                         </div>

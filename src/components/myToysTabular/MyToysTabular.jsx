@@ -13,9 +13,9 @@ const MyToysTabular = ({ toy, handleDeleteToy }) => {
             <td> <h3>{quantity}</h3> </td>
 
             <td>
-                <Link to={`/update/${toy?._id}`}><button className='btn btn-sm mr-3' >Update</button>  </Link>
+                <Link to={`/update/${toy?._id}`}><button className='btn btn-sm mr-3 bg-[#8bc34a]' >Update</button>  </Link>
                 {/* <Link to={`/details/${toy?._id}`}><button className='btn btn-sm mr-3' >View Details</button>  </Link> */}
-                <button className='btn btn-danger btn-sm' onClick={() => handleDeleteToy(_id)}>X</button>
+                <button className='btn btn-sm bg-[#ffe6fa]' onClick={() => handleDeleteToy(_id)}>X</button>
 
             </td>
         </tr>
