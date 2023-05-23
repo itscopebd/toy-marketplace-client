@@ -11,8 +11,6 @@ const MyToyPage = () => {
 
     const handleDeleteToy = (id) => {
         const url = `https://b7a11-toy-marketplace-server-side-itscopebd.vercel.app/del/${id}`;
-
-
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -32,10 +30,8 @@ const MyToyPage = () => {
                         if (data.deletedCount > 0) {
                             const remening = myToys.filter(toy => toy._id !== id);
                             setMyToys(remening)
-        
                         }
                     })
-
 
               Swal.fire(
                 'Deleted!',
@@ -44,9 +40,6 @@ const MyToyPage = () => {
               )
             }
           })
-
-
-
     }
 
     useEffect(() => {
@@ -60,10 +53,30 @@ const MyToyPage = () => {
             .then(data => setMyToys(data))
     }, [])
 
-    console.log(myToys)
+    const handleLowPrice=()=>{
+        fetch("https://b7a11-toy-marketplace-server-side-itscopebd.vercel.app/low")
+        .then(res=>res.json())
+        .then(data=>{
+            setMyToys(data)
+        })
+    }
 
+    const handleHightPrice=()=>{
+        fetch("https://b7a11-toy-marketplace-server-side-itscopebd.vercel.app/high")
+        .then(res=>res.json())
+        .then(data=>{
+            setMyToys(data)
+        })
+    }
     return (
         <div className='container mx-auto my-5'>
+            <div className='my-5 flex justify-end gap-5 items-center'>
+                <p className='text-3xl'>Sort By:</p>
+                <div>
+                <button className='btn mr-3' onClick={handleLowPrice}>Low Price</button>
+                <button className='btn' onClick={handleHightPrice}>High Price</button>
+                </div>
+            </div>
             <div className="overflow-x-auto w-full">
                 <table className="table table-compact w-full">
                     {/* head */}
