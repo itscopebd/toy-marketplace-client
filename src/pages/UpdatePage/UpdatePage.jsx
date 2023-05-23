@@ -3,9 +3,11 @@ import { AuthContext } from '../../authProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import { useForm } from 'react-hook-form';
 import { useLoaderData } from 'react-router-dom';
+import UseTitle from '../../hooks/UseTitle';
 
 const UpdatePage = () => {
     const { user } = useContext(AuthContext);
+    UseTitle("Update")
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
     const getUpdateData=useLoaderData();

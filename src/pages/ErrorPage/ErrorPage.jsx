@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link, useRouteError } from 'react-router-dom';
+import UseTitle from '../../hooks/UseTitle';
 const ErrorPage = () => {
     const error=useRouteError();
+    UseTitle("Error")
     console.log(error)
     return (
         <div className='flex flex-col justify-center items-center h-screen'>

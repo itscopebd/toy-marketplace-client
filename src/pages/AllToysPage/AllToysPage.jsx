@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import ToysTabular from '../../components/ToysTabular/ToysTabular';
+import UseTitle from '../../hooks/UseTitle';
 
 const AllToysPage = () => {
 
     const loadToys = useLoaderData();
-
+UseTitle("All Toys")
     const [allToys, setAllToys] = useState(loadToys);
     const [searchText, setSearchText] = useState([])
 

@@ -10,8 +10,10 @@ import ShopByCatCard from '../../components/Card/ShopByCatCard';
 
 import AOS from "aos";
 import 'aos/dist/aos.css'
+import UseTitle from '../../hooks/UseTitle';
 const HomePage = () => {
     const toys = useLoaderData();
+    UseTitle("Home")
     useEffect(() => {
         AOS.init({ duration: 2000 });
     }, [])

@@ -2,11 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import MyToysTabular from '../../components/myToysTabular/myToysTabular';
 import { AuthContext } from '../../authProvider/AuthProvider';
 import Swal from 'sweetalert2';
+import UseTitle from '../../hooks/UseTitle';
 
 
 const MyToyPage = () => {
     // const loadToys = useLoaderData();
     const { user } = useContext(AuthContext);
+    UseTitle("My Toys")
     const [myToys, setMyToys] = useState([]);
 
     const handleDeleteToy = (id) => {
