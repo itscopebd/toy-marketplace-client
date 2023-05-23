@@ -68,18 +68,25 @@ const subCategory=[
 
                                     <div className="form-control w-1/2">
                                         <label className="label">
+                                            <span className="label-text">Name</span>
+                                        </label>
+                                        <input type="text" placeholder="Name" className="input input-bordered"  {...register("name")} required />
+                                    </div>
+                                    <div className="form-control w-1/2">
+                                        <label className="label">
                                             <span className="label-text">Price</span>
                                         </label>
                                         <input type="text" placeholder="Price" className="input input-bordered"  {...register("price")} required />
                                     </div>
-                                    <div className="form-control w-1/2">
+                                    
+                                </div>
+                                <div className='flex gap-3'>
+                                <div className="form-control w-1/2">
                                         <label className="label">
                                             <span className="label-text">Image Url</span>
                                         </label>
                                         <input type="url" placeholder="Image Url" className="input input-bordered"  {...register("image")} required />
                                     </div>
-                                </div>
-                                <div className='flex gap-3'>
                                     <div className="form-control w-1/2">
                                         <label className="label">
                                             <span className="label-text">Rating</span>

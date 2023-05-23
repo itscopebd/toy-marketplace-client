@@ -1,22 +1,63 @@
 import React, { useContext, useEffect, useState } from 'react';
 import MyToysTabular from '../../components/myToysTabular/myToysTabular';
 import { AuthContext } from '../../authProvider/AuthProvider';
+import Swal from 'sweetalert2';
 
 
 const MyToyPage = () => {
     // const loadToys = useLoaderData();
     const { user } = useContext(AuthContext);
     const [myToys, setMyToys] = useState([]);
-   
+
+    const handleDeleteToy = (id) => {
+        const url = `https://b7a11-toy-marketplace-server-side-itscopebd.vercel.app/del/${id}`;
+
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch(url, {
+                    method: "DELETE"
+                })
+                    .then(result => result.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            const remening = myToys.filter(toy => toy._id !== id);
+                            setMyToys(remening)
+        
+                        }
+                    })
+
+
+              Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+              )
+            }
+          })
+
+
+
+    }
+
     useEffect(() => {
-        fetch(`https://b7a11-toy-marketplace-server-side-itscopebd.vercel.app/mytoys?email=${user?.email}`,{
-            method:"GET",
-            headers:{
-                "content-type":"application/json"
+        fetch(`https://b7a11-toy-marketplace-server-side-itscopebd.vercel.app/mytoys?email=${user?.email}`, {
+            method: "GET",
+            headers: {
+                "content-type": "application/json"
             }
         })
             .then(res => res.json())
-            .then(data =>setMyToys(data))
+            .then(data => setMyToys(data))
     }, [])
 
     console.log(myToys)
@@ -42,7 +83,7 @@ const MyToyPage = () => {
 
 
                         {
-                            myToys?.map(toy => <MyToysTabular key={toy._id} toy={toy} toys={toy}></MyToysTabular>)
+                            myToys?.map(toy => <MyToysTabular key={toy._id} toy={toy} handleDeleteToy={handleDeleteToy}></MyToysTabular>)
                         }
                     </tbody>
 
