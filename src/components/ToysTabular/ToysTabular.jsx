@@ -9,8 +9,9 @@ const ToysTabular = ({ toy}) => {
     return (
         <tr>
            <td> <img className='rounded-lg' style={{width:'150px', height:"100px"}} src={toy?.image} alt="" /> </td>
+           <td> <h3>{toy?.sellerName}</h3> </td>
            <td> <h3>{toy?.name}</h3> </td>
-           <td> <h3>{toy?.userName}</h3> </td>
+           
            <td> <h3>{toy?.SubCategory}</h3> </td>
            
            <td> <h3>${toy?.price}</h3> </td>
