@@ -8,10 +8,13 @@ import FeatureProduct from '../../components/FeatureProduct/FeatureProduct';
 import BestSeller from '../../components/BestSeller/BestSeller';
 import ShopByCatCard from '../../components/Card/ShopByCatCard';
 
-
+import AOS from "aos";
+import 'aos/dist/aos.css'
 const HomePage = () => {
     const toys = useLoaderData();
-  
+    useEffect(() => {
+        AOS.init({ duration: 2000 });
+    }, [])
     const sportsCar=toys.filter(sportsCar=>sportsCar.subCatid==1)
     const regularCar=toys.filter(sportsCar=>sportsCar.subCatid==3)
     const truckCar=toys.filter(sportsCar=>sportsCar.subCatid==2)
@@ -31,21 +34,21 @@ const HomePage = () => {
                     </TabList>
 
                     <TabPanel>
-                       <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-10'>
+                       <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-10' data-aos="fade-left">
                        {
                             sportsCar.splice(0, 4).map(single=><ShopByCatCard single={single}></ShopByCatCard>)
                         }
                        </div>
                     </TabPanel>
                     <TabPanel>
-                    <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-10'>
+                    <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-10' data-aos="fade-left">
                        {
                             regularCar.splice(0, 4).map(single=><ShopByCatCard single={single}></ShopByCatCard>)
                         }
                        </div>
                     </TabPanel>
                     <TabPanel>
-                    <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-10'>
+                    <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-10' data-aos="fade-left">
                        {
                             truckCar.splice(0, 4).map(single=><ShopByCatCard single={single}></ShopByCatCard>)
                         }

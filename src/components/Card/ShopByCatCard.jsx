@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ShopByCatCard = ({ single }) => {
-    console.log(single)
-    const {_id,name,image,price,rating } = single;
+   
+    const { _id, name, image, price, rating } = single;
     return (
         <div className="card bg-base-100 shadow-xl">
             <figure><img className='w-full h-72' src={image} alt="Shoes" /></figure>
